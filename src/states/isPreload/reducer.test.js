@@ -36,7 +36,7 @@ describe('isPreloadReducer function', () => {
     // action
     const nextState = isPreloadReducer(initialState, action);
 
-    // assert
-    expect(nextState).toBe(false);
+    // assert (sengaja dibuat salah untuk memicu CI check error)
+    expect(nextState).toBe(true);
   });
 });
