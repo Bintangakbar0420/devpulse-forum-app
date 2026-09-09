@@ -9,6 +9,7 @@ build
 storybook-static
 cypress/videos
 cypress/screenshots
+*.zip
 
 # Environment variables & local files
 .env
