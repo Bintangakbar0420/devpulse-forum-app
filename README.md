@@ -2,6 +2,9 @@
 
 Aplikasi Forum Diskusi modern yang dibangun menggunakan **React**, **Redux Toolkit**, dan **Vite** yang terintegrasi dengan **Dicoding Forum API v1** (`https://forum-api.dicoding.dev/v1`).
 
+- 🌐 **Live Demo (Vercel):** [https://devpulse-forum-app.vercel.app](https://devpulse-forum-app.vercel.app)
+- 🐙 **Repository GitHub:** [https://github.com/Bintangakbar0420/devpulse-forum-app](https://github.com/Bintangakbar0420/devpulse-forum-app)
+
 Proyek ini telah mengimplementasikan seluruh kriteria **Submission 1** dan **Submission 2 (Submission Akhir)** kelas *Menjadi React Web Developer Expert* dengan pemenuhan seluruh kriteria utama dan saran opsional untuk mencapai penilaian **Bintang 5**.
 
 ---
