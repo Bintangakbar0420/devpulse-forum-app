@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FiAward } from 'react-icons/fi';
 import { asyncReceiveLeaderboards } from '../states/leaderboards/action';
@@ -7,11 +7,17 @@ import LeaderboardList from '../components/leaderboards/LeaderboardList';
 
 function LeaderboardsPage() {
   const dispatch = useDispatch();
-  const leaderboards = useSelector((state) => state.leaderboards);
+  const rawLeaderboards = useSelector((state) => state.leaderboards);
 
   useEffect(() => {
     dispatch(asyncReceiveLeaderboards());
   }, [dispatch]);
+
+  const leaderboards = useMemo(() => {
+    return rawLeaderboards.filter(
+      (item) => !item.user?.name?.toLowerCase().includes('antigravity') && item.user?.id !== 'user-JDbZgghgPJXCbzip',
+    );
+  }, [rawLeaderboards]);
 
   const topThree = leaderboards.slice(0, 3);
   const remaining = leaderboards.slice(3);

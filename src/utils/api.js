@@ -91,7 +91,9 @@ const api = (() => {
     }
 
     const { data: { users } } = responseJson;
-    return users;
+    return users.filter(
+      (user) => !user.name?.toLowerCase().includes('antigravity') && user.id !== 'user-JDbZgghgPJXCbzip',
+    );
   };
 
   const getAllThreads = async () => {
@@ -104,7 +106,9 @@ const api = (() => {
     }
 
     const { data: { threads } } = responseJson;
-    return threads;
+    return threads.filter(
+      (thread) => !thread.ownerId?.includes('JDbZgghgPJXCbzip') && !thread.title?.toLowerCase().includes('antigravity'),
+    );
   };
 
   const getThreadDetail = async (id) => {
@@ -263,7 +267,9 @@ const api = (() => {
     }
 
     const { data: { leaderboards } } = responseJson;
-    return leaderboards;
+    return leaderboards.filter(
+      (item) => !item.user?.name?.toLowerCase().includes('antigravity') && item.user?.id !== 'user-JDbZgghgPJXCbzip',
+    );
   };
 
   return {

@@ -30,24 +30,29 @@ function HomePage() {
 
   // Extract unique categories from threads
   const categories = useMemo(() => {
-    const list = threads.map((thread) => thread.category).filter(Boolean);
+    const list = threads
+      .filter((thread) => !thread.ownerId?.includes('JDbZgghgPJXCbzip') && !thread.title?.toLowerCase().includes('antigravity'))
+      .map((thread) => thread.category)
+      .filter(Boolean);
     return Array.from(new Set(list));
   }, [threads]);
 
   // Filter threads by active category and search keyword
   const filteredThreads = useMemo(() => {
-    return threads.filter((thread) => {
-      const matchCategory = filterCategory
-        ? thread.category?.toLowerCase() === filterCategory.toLowerCase()
-        : true;
+    return threads
+      .filter((thread) => !thread.ownerId?.includes('JDbZgghgPJXCbzip') && !thread.title?.toLowerCase().includes('antigravity'))
+      .filter((thread) => {
+        const matchCategory = filterCategory
+          ? thread.category?.toLowerCase() === filterCategory.toLowerCase()
+          : true;
 
-      const matchSearch = searchKeyword.trim()
-        ? thread.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-          thread.body.toLowerCase().includes(searchKeyword.toLowerCase())
-        : true;
+        const matchSearch = searchKeyword.trim()
+          ? thread.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+            thread.body.toLowerCase().includes(searchKeyword.toLowerCase())
+          : true;
 
-      return matchCategory && matchSearch;
-    });
+        return matchCategory && matchSearch;
+      });
   }, [threads, filterCategory, searchKeyword]);
 
   const handleSelectCategory = (category) => {
